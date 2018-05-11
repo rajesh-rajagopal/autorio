@@ -1,3 +1,9 @@
+## Rio/OS specific files
+/ca.crt
+/rioos_registry_ca.crt
+/config.yaml
+*.config
+### Other files
 *.gem
 *.rbc
 /.config

@@ -1,0 +1,5 @@
+[RioOS]
+name=RioOS
+baseurl=https://get.rioos.xyz/repo/centos/centos7/2.0.0-rc2/testing/centos7/
+enabled=1
+gpgcheck=0
