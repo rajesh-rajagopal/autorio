@@ -3,7 +3,7 @@
 Automated deployment of [Rio/OS](http://rio.digital) using [SSHKit](https://github.com/capistrano/sshkit).
 
 
-This is an opinionated tool like [ceph-deploy](https://github.com/ceph/ceph-deploy) and not a general purpose devOps tool like [chef](https://chef.io), [Habitat](https://habitat.sh], [Ansible](https://ansible).
+This is an opinionated tool like [ceph-deploy](https://github.com/ceph/ceph-deploy) and not a general purpose devOps tool like [chef](https://chef.io), [Habitat](https://habitat.sh), [Ansible](https://ansible).
 
 Ofcourse recipes in chef, puppet, ansible, habitat can be created as well.
 
