@@ -229,40 +229,40 @@ rake clean[pre,master]
 ```
 ## Invalid version
 
-![Invalid](https://github.com/riodavancement/autorio/blob/master/public/2_0_0.png)
+![Invalid](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0.png)
 
 
 ## 2.0.0-rc0
 
-![Clean 2.0.0-rc0](https://github.com/riodavancement/autorio/blob/master/public/2_0_0_rc0.png)
+![Clean 2.0.0-rc0](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc0.png)
 
 ## 2.0.0-rc1
 
-![Clean 2.0.0-rc1](https://github.com/riodavancement/autorio/blob/master/public/2_0_0_rc1.png)
+![Clean 2.0.0-rc1](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc1.png)
 
 ## 2.0.0-rc3
 
-![Clean 2.0.0-rc3](https://github.com/riodavancement/autorio/blob/master/public/2_0_0_rc3.png)
+![Clean 2.0.0-rc3](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc3.png)
 
 ## 2.0.0
 
-![Clean 2.0.0](https://github.com/riodavancement/autorio/blob/master/public/2_0_0.png)
+![Clean 2.0.0](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0.png)
 
 ## 2.0.1
 
-![Clean 2.0.1](https://github.com/riodavancement/autorio/blob/master/public/2_0_1.png)
+![Clean 2.0.1](https://github.com/rioadvancement/autorio/blob/master/public/2_0_1.png)
 
 ## 2.1.0
 
-![Clean 2.1.0](https://github.com/riodavancement/autorio/blob/master/public/2_1_0.png)
+![Clean 2.1.0](https://github.com/rioadvancement/autorio/blob/master/public/2_1_0.png)
 
 ## 2.1.1
 
-![Clean 2.1.1](https://github.com/riodavancement/autorio/blob/master/public/2_1_1.png)
+![Clean 2.1.1](https://github.com/rioadvancement/autorio/blob/master/public/2_1_1.png)
 
 ## 2.1.2
 
-![Clean 2.1.2](https://github.com/riodavancement/autorio/blob/master/public/2_1_2.png)
+![Clean 2.1.2](https://github.com/rioadvancement/autorio/blob/master/public/2_1_2.png)
 
 
 # Rolling back Rio OS
