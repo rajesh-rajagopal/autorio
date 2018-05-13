@@ -23,15 +23,15 @@ module Autorio
 
     def gather
       hosts.each do |sshhost|
-        #on sshhost do |sshost|
-        puts "download " + gather_locations[:from] + " " + gather_locations[:to] + "nodelet.config"
-        puts "download " + gather_locations[:from] + " " + gather_locations[:to] + "storlet.config"
-        #end
+        on sshhost do |sshost|
+          download gather_locations[:from], gather_locations[:to] + "nodelet.config"
+          downlad gather_locations[:from], gather_locations[:to] + "storlet.config"
+        end
       end
     end
 
     def container_tasks
-      [Login.new, API.new, CommandCenter.new, Controller.new, Scheduler.new, Prometheus.new, Blockchain.new]
+      [Login.new, API.new, CommandCenter.new, Controller.new, Scheduler.new, Prometheus.new, Blockchain.new, PowerDNS.new]
     end
 
     def native_tasks

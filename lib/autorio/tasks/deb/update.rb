@@ -5,7 +5,8 @@ module Autorio::Deb
     NAME = "update"
 
     def deploy
-      SUDO_APT_GET + " update"
+      [SUDO_APT_GET + " update -y ",
+       SUDO_APT_GET_INSTALL + " build-essential python-software-properties "]
     end
 
     def clean

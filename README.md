@@ -9,18 +9,17 @@ Ofcourse recipes in chef, puppet, ansible, habitat can be created as well.
 
 # Pre reqs
 
-- Ruby 2.5.x
-
+- [Ruby 2.5.x](https://ruby-lang.org)
 - [sshkit](https://github.com/capistrano/sshkit)
 - [rake](https://github.com/ruby/rake)
 
 # Install Rio OS using Autorio
 
-The install instructions require the private registry keys for the software to be installed.  Contact [sales@rio.company](sales@rio.company) for requesting access to the private registry.
+The install instructions require the [Rio/OS private registry](https://registry.rioos.xyz) SSH RSA public CA certicate for accessing the software to be installed.  Contact [sales@rio.company](sales@rio.company) for requesting access to the private registry.
 
 ## Clone 
 
-This isn't packaged as `gem` yet. So yeah, bit ugly.
+This isn't packaged as `gem` yet. So yeah, a little bit ugly :).
 
 ```
 
@@ -32,35 +31,54 @@ cd autorio
 
 ## Config.yaml
 
-Refer [rio.digital/docs](http://bit.ly/rioos_sh_usersguide){:target="_blank"}  for the configuration parameter details
-
-The sections
-
-### Common
+This sections differs for each of the site.  Refer [rio.digital/docs](http://bit.ly/rioos_sh_usersguide/installing#plan)  for the configuration parameter explanation.
 
 ```
 
 MY_IP_ADDRESS: "192.168.2.47"
-version: "2.0.0-rc2"
+version: "2.0.0-rc5"
 RIOOS_REPO: "get.rioos.xyz"
 RIOOS_REPO_USER: "rioosadmin"
 RIOOS_REPO_PASSWORD: "team4rio"
 RIOOS_REGISTRY: "registry.rioos.xyz:5000"
 RIOOS_HOME: "/var/lib/rioos"
 RIOOS_CONFIG_HOME: "/var/lib/rioos/config"
-DNS_ENDPOINT: "http://console.rioos.xyz:8081"
+POWERDNS_HOST: "console.rioos.xyz"
+POWERDNS_DOMAIN: "rioosbox.com"
 API_SERVER: "https://console.rioos.xyz:7443"
 WATCH_SERVER: "https://console.rioos.xyz:8443"
 
+
 ```
 
-Change the following
 
--  `version` you wish to install.
--  `MY_IP_ADDRESS` of master
--  `DNS_ENDPOINT` endpoint of the dns
--  `API_SERVER` endpoint of the api server
--  `WATCH_SERVER` endpoint of the watch server
+| Parameter           | Default value                  | **Modify**  |
+|---------------------|--------------------------------|-------------|
+| version             | 2.0.0-rc5                      | Required    |
+| MY_IP_ADDRESS       | 192.168.1.199                  | Required    |
+| RIOOS_REPO          | get.rioos.xyz                  | Default     |
+| RIOOS_REPO_USER     | rioosadmin                     | Default     |
+| RIOOS_REPO_PASSWORD | team4rio                       | Default     |
+| RIOOS_REGISTRY      | registry.rioos.xyz:5000        | Default     |
+| RIOOS_HOME:         | /var/lib/rioos                 | Default     |
+| RIOOS_CONFIG_HOME   | /var/lib/rioos/config          | Default     |
+| POWERDNS_HOST       | console.rioos.xyz              | Required    |
+| POWERDNS_DOMAIN     | rioosbox.com                   | Required    |
+| API_SERVER          | https://console.rioos.xyz:7443 | Required    |
+| WATCH_SERVER        | https://console.rioos.xyz:8443 | Required    |
+
+**Modify** the `parameters marked **Required**
+
+**Example**
+
+| Parameter       | Modify examples             | Modify   |
+|-----------------|-----------------------------|----------|
+| version         | 2.0.0-rc5, 2.0.0-rc6, 2.0.0 | Required |
+| MY_IP_ADDRESS   | 192.168.1.188               | Required |
+| POWERDNS_HOST   | 192.1681.188                | Required |
+| POWERDNS_DOMAIN | rioosbox.com                | Required |
+| API_SERVER      | https://192.1681.188:7443   | Required |
+| WATCH_SERVER    | https://192.1681.188:8443   | Required |
 
 ### Master
 
@@ -236,14 +254,6 @@ rake clean[pre,master]
 
 ![Clean 2.0.0-rc0](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc0.png)
 
-## 2.0.0-rc1
-
-![Clean 2.0.0-rc1](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc1.png)
-
-## 2.0.0-rc3
-
-![Clean 2.0.0-rc3](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0_rc3.png)
-
 ## 2.0.0
 
 ![Clean 2.0.0](https://github.com/rioadvancement/autorio/blob/master/public/2_0_0.png)
@@ -251,19 +261,6 @@ rake clean[pre,master]
 ## 2.0.1
 
 ![Clean 2.0.1](https://github.com/rioadvancement/autorio/blob/master/public/2_0_1.png)
-
-## 2.1.0
-
-![Clean 2.1.0](https://github.com/rioadvancement/autorio/blob/master/public/2_1_0.png)
-
-## 2.1.1
-
-![Clean 2.1.1](https://github.com/rioadvancement/autorio/blob/master/public/2_1_1.png)
-
-## 2.1.2
-
-![Clean 2.1.2](https://github.com/rioadvancement/autorio/blob/master/public/2_1_2.png)
-
 
 # Rolling back Rio OS
 

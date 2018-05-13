@@ -19,11 +19,11 @@ module Autorio
       @hosts
     end
 
-    def push
+    def spread
       hosts.each do |sshhost|
-        #on sshhost do |sshost|
-        puts "upload " + push_locations[:from] + " " + push_locations[:to] + STORLET_CONFIG
-        #end
+        on sshhost do |sshost|
+          upload spread_locations[:from], spread_locations[:to] + STORLET_CONFIG
+        end
       end
     end
 
@@ -37,7 +37,7 @@ module Autorio
 
     private
 
-    def push_locations
+    def spread_locations
       @out_path = Pathname(File.expand_path(File.dirname(__FILE__))).to_s + "/../../#{STORLET_CONFIG}"
 
       {from: @out_path, to: "/var/lib/rioos/config/" + STORLET_CONFIG}

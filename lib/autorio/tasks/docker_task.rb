@@ -9,15 +9,27 @@ module Autorio
     SUDO_DOCKER_RM = SUDO + " " + DOCKER + " rm "
     SUDO_DOCKER_RMI = SUDO + " " + DOCKER + " rmi "
 
+    def before_deploy
+    end
+
     def deploy
       [SUDO_DOCKER_RUN + daemon + (net_host || " ") + (my_ip_address || " ") + (name || " ") + link + env + vol + restart_always + container + misc]
+    end
+
+    def after_deploy
     end
 
     def rollback
     end
 
+    def before_clean
+    end
+
     def clean
       [SUDO_DOCKER_RM + name_colon_version, SUDO_DOCKER_RMI + name_colon_version]
+    end
+
+    def after_clean
     end
 
     def daemon

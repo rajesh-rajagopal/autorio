@@ -7,10 +7,6 @@ module Autorio
     def net_host
     end
 
-    def ip_address_ports
-      [Autorio::Config.MY_IP_ADDRESS + "10251:10251"]
-    end
-
     def vols
       ["#{Autorio::Config.RIOOS_HOME}:/var/lib/postgresql"]
     end

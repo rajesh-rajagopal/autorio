@@ -17,11 +17,11 @@ module Autorio
       @hosts
     end
 
-    def push
+    def spread
       hosts.each do |sshhost|
-        #on sshhost do |sshost|
-        puts "upload " + push_locations[:from] + " " + gather_locations[:to] + "nodelet.config"
-        #end
+        on sshhost do |sshost|
+          upload spread_locations[:from], spread_locations[:to] + "nodelet.config"
+        end
       end
     end
 
@@ -35,7 +35,7 @@ module Autorio
 
     private
 
-    def push_locations
+    def spread_locations
       @out_path = Pathname(File.expand_path(File.dirname(__FILE__))).to_s + "/../../"
 
       {to: @out_path, from: "/var/lib/rioos/config/nodelet.config"}
