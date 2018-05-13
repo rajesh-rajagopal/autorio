@@ -12,14 +12,20 @@ Ofcourse recipes in chef, puppet, ansible, habitat can be created as well.
 - [Ruby 2.5.x](https://ruby-lang.org)
 - [sshkit](https://github.com/capistrano/sshkit)
 - [rake](https://github.com/ruby/rake)
+- Linux
 
 # Install Rio OS using Autorio
 
-The install instructions require the [Rio/OS private registry](https://registry.rioos.xyz) SSH RSA public CA certicate for accessing the software to be installed.  Contact [sales@rio.company](sales@rio.company) for requesting access to the private registry.
+The install instructions require the [Rio/OS private registry](https://registry.rioos.xyz) SSH RSA public CA certicate for accessing the software to be installed.  
+
+Contact [sales@rio.company](sales@rio.company) for requesting access to the private registry.
+
+Download the `rioos_registry_ca.crt` registry certificate into `$HOME/Downloads`
+
 
 ## Clone 
 
-This isn't packaged as `gem` yet. So yeah, a little bit ugly :).
+This isn't packaged as `gem` yet. So yeah, a tiny-tiny bit ugly :).
 
 ```
 
@@ -27,9 +33,13 @@ git clone https://github.com/rioadvancement/autorio
 
 cd autorio
 
+mv ~/Downloads/rioos_registry_ca.crt autorio
+
 ```
 
 ## Config.yaml
+
+Edit `autorio/config.yaml`
 
 This sections differs for each of the site.  Refer [rio.digital/docs](http://bit.ly/rioos_sh_usersguide/installing#plan)  for the configuration parameter explanation.
 
