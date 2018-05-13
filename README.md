@@ -211,13 +211,29 @@ rake deploy[pre,master]
 
 ## Gather
 
-Gather the credentials generated in master. This is used by nodelet and storlet to connect with the master.
+Gather the credentials generated in **master**. 
+
+Spread them to **nodelet** and **storlet** to connect with the master.
 
 ```
 
 rake gather
 
 ```
+
+## Spread
+
+Spread the credentials generated in **master** to **nodelet** and **storlet**
+
+```
+
+rake spread[nodelet]
+
+rake spread[storlet]
+
+
+```
+
 
 ## Nodelet with CPU
 

@@ -65,3 +65,12 @@ task :gather do
     log_exception(e)
   end
 end
+
+desc "Spread the configs"
+task :spread, [:which] do |_t, args|
+  begin
+    Autorio::Deployer.new(args).spread
+  rescue StandardError => e
+    log_exception(e)
+  end
+end

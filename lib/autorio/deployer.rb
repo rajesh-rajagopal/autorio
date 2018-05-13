@@ -24,8 +24,25 @@ module Autorio
       end
     end
 
+    def proceed_spread
+      case @args[:which]
+      when "nodelet"
+        raise "Nothing to spread. Missing nodelet.config" unless Autorio::Util::File.exist?(Pathname(File.expand_path(File.dirname(__FILE__))).to_s + "/../../nodelet.config")
+        Autorio::Nodelet.new(args).spread
+      when "storlet"
+        raise "Nothing to spread. Missing storlet.config" unless Autorio::Util::File.exist?(Pathname(File.expand_path(File.dirname(__FILE__))).to_s + "/../../storlet.config")
+        Autorio::Storlet.new(args).spread
+      else
+        raise "Unknown  server type: #{@args}, valid: nodelet, storlet"
+      end
+    end
+
     def deploy
       proceed
+    end
+
+    def spread
+      proceed_spread
     end
 
     private
