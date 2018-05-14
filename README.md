@@ -20,7 +20,7 @@ The install instructions require the [Rio/OS private registry](https://registry.
 
 Contact [sales@rio.company](sales@rio.company) for requesting access to the private registry.
 
-Download the `rioos_registry_ca.crt` registry certificate into `$HOME/Downloads`
+Download the attachment `rioos_registry_ca.crt` from your email into `$HOME/Downloads`
 
 
 ## Clone 
