@@ -3,26 +3,14 @@ require "autorio/tasks/docker_task"
 
 module Autorio
   class Login < DockerTask
-    NAME = "docker login"
-    NAME_CLEAN = "docker logout"
+    NAME_CLEAN = ["docker", "logout"]
 
     def deploy
-      [NAME]
+      ["docker", " login ", "-u ", Autorio::Config.RIOOS_REGISTRY_USER, " -p ", Autorio::Config.RIOOS_REGISTRY_PASSWORD, Autorio::Config.RIOOS_REGISTRY]
     end
 
     def clean
-      [NAME_CLEAN]
-    end
-
-    def interaction_lamda
-      lambda { |server_data|
-        case server_data
-        when "userid: "
-          Autorio::Config.RIOOS_REPO_USER + "\n"
-        when /password: /
-          Autorio::Config.RIOOS_REPO_PASSWORD + "\n"
-        end
-      }
+      NAME_CLEAN
     end
 
     def overriden_name

@@ -13,7 +13,7 @@ module Autorio
     end
 
     def envs
-      ["DNS_ENDPOINT=#{Autorio::Config.DNS_ENDPOINT}",
+      ["DNS_ENDPOINT=#{Autorio::Config.POWERDNS_HOST}",
        "API_SERVER=#{Autorio::Config.API_SERVER}",
        "WATCH_SERVER=#{Autorio::Config.WATCH_SERVER}"]
     end

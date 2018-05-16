@@ -20,12 +20,13 @@ module Autorio
     end
 
     def after_deploy
-      pdns_zone.create(
+      z = pdns_zone
+      z.create(
         name: zone.id,
         kind: "Native",
         #  dnssec: true,
         nameservers: %w( ns1.rioosbox.com. ns2.rioosbox.com. ),
-      )
+      ) if z
     end
 
     def before_rollback
@@ -47,7 +48,8 @@ module Autorio
     end
 
     def pdns_zone
-      pdns_client.servers("localhost").zone(Autorio::Config.POWERDNS_DOMAIN)
+      s = pdns_client.servers("localhost")
+      s.zone(Autorio::Config.POWERDNS_DOMAIN) if s.respond_to?(zone)
     end
   end
 end

@@ -21,23 +21,26 @@ module Autorio
         native_tasks.each do |clas|
           on sshhost do |sshost|
             clz = NativeTasks.load(clas, yd)
-            execute clz.deploy unless clz.respond_to?(:upload)
-            upload clz.upload[:from], clz.upload[:to] if clz.respond_to?(:upload)
+            if ["sudo", clz.deploy].flatten.join(" ")
+              puts " Hooray!"
+            end
+            upload! clz.upload[:from], clz.upload[:to] if clz.respond_to?(:upload)
           end
         end
       end
 
       #this is messy, the tasks must have types like
-      # Execute
-      # Upload
-      # Download
-      # Just call <task>.execute here.
+      # ExecuteRunner   with run method.
+      # UploadRunner    with run method.
+      # DownloadRunner  with run method.
+      # Just call exec.run here.
       container_tasks.each do |t|
         hosts.each do |sshhost|
           on sshhost do |sshost|
-            execute t.deploy unless t.respond_to?(:interaction_lamda)
-            upload t.upload[:from], t.upload[:to] if t.respond_to?(:upload)
-            execute(t.deploy, interaction_handler: t.interaction_lamda) if t.respond_to?(:interaction_lamda)
+            if test ["sudo", t.deploy].flatten.join(" ")
+              puts " YeyHaw!"
+            end
+            upload! t.upload[:from], t.upload[:to] if t.respond_to?(:upload)
             t.after_deploy
           end
         end
@@ -48,7 +51,9 @@ module Autorio
       container_tasks.each do |t|
         hosts.each do |sshhost|
           on sshhost do |sshost|
-            execute t.clean
+            if test ["sudo", t.clean].flatten.join(" ")
+              puts " Awesome!"
+            end
           end
         end
       end
@@ -57,7 +62,9 @@ module Autorio
         native_tasks.reverse.each do |clas|
           on sshhost do |sshost|
             clz = NativeTasks.load(clas, yd)
-            execute clz.clean unless clz.respond_to?(:upload)
+            if test ["sudo", clz.clean].flatten.join(" ")
+              puts " Fanstastic!"
+            end unless clz.respond_to?(:upload)
           end
         end
       end

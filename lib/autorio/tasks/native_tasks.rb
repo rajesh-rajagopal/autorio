@@ -5,6 +5,7 @@ require "autorio/tasks/deb/nodelet"
 require "autorio/tasks/deb/storlet"
 require "autorio/tasks/deb/docker"
 require "autorio/tasks/deb/wget_curl"
+require "autorio/tasks/deb/pkg_transport"
 require "autorio/tasks/deb/reg_certs"
 
 require "autorio/tasks/yum/update"
@@ -19,15 +20,17 @@ require "autorio/tasks/yum/reg_certs"
 module Autorio
   class NativeTasks
     def self.master
-      %w(RepoSetup Update WgetCurl VNC)
+      # ~~~ Commented for testing only. ~~~
+      # %w(PkgTransport RepoSetup Update WgetCurl VNC)
+      %w(PkgTransport)
     end
 
     def self.nodelet
-      %w(RepoSetup Update WgetCurl Nodelet)
+      %w(PkgTransport RepoSetup Update WgetCurl Nodelet)
     end
 
     def self.storlet
-      %w(RepoSetup Update WgetCurl Storlet)
+      %w(PkgTransport RepoSetup Update WgetCurl Storlet)
     end
 
     def self.load(claz, from)

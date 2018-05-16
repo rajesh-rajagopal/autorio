@@ -5,9 +5,7 @@ module Autorio::Yum
     NAME = "regcerts"
 
     def upload
-      @out_path = Pathname(File.expand_path(File.dirname(__FILE__))).to_s + "/../../rioos_registry_ca.crt"
-
-      {from: @out_path, to: "/etc/docker/certs.d/#{Autorio::Config.RIOOS_REGISTRY}"}
+      {from: Autorio::Config.rioos_registry_ca_crt, to: "/etc/docker/certs.d/#{Autorio::Config.RIOOS_REGISTRY}/ca.crt"}
     end
 
     def overriden_name

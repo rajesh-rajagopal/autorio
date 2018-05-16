@@ -22,7 +22,7 @@ module Autorio
     def spread
       hosts.each do |sshhost|
         on sshhost do |sshost|
-          upload spread_locations[:from], spread_locations[:to] + STORLET_CONFIG
+          upload! spread_locations[:from], spread_locations[:to] + STORLET_CONFIG
         end
       end
     end

@@ -5,7 +5,7 @@ module Autorio
     NAME = "rioosui".freeze
 
     def ip_address_ports
-      [Autorio::Config.MY_IP_ADDRESS + ":443:8000"]
+      [Autorio::Config.MY_IP_ADDRESS + ":5443:8000"]
     end
 
     def net_host
