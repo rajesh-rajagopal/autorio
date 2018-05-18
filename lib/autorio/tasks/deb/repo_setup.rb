@@ -5,15 +5,15 @@ module Autorio::Deb
     NAME = "reposetup"
 
     def deploy
-      deb = "deb [arch=amd64]  https://#{Autorio::Config.RIOOS_REPO}/repo/rioos/aventura/#{Autorio::Config.what_version}/testing aventura testing"
+      deb = "deb [arch=amd64] #{Autorio::Config.RIOOS_REPO}/repo/rioos/aventura/#{Autorio::Config.what_version}/testing aventura testing"
 
-      [SUDO + " apt-add-repository '" + deb + "'"]
+      [" apt-add-repository '" + deb + "'"]
     end
 
     def clean
-      deb = "deb [arch=amd64]  https://#{Autorio::Config.RIOOS_REPO}/repo/rioos/aventura/#{Autorio::Config.what_version}/testing aventura testing"
+      deb = "deb [arch=amd64] #{Autorio::Config.RIOOS_REPO}/repo/rioos/aventura/#{Autorio::Config.what_version}/testing aventura testing"
 
-      [SUDO + " sudo add-apt-repository --remove '" + deb + "'"]
+      [" apt-add-repository --remove '" + deb + "'"]
     end
 
     def overriden_name

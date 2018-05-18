@@ -20,7 +20,7 @@ module Autorio
     def spread
       hosts.each do |sshhost|
         on sshhost do |sshost|
-          upload spread_locations[:from], spread_locations[:to] + "nodelet.config"
+          upload! spread_locations[:from], spread_locations[:to] + "nodelet.config"
         end
       end
     end

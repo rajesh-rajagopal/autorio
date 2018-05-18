@@ -8,12 +8,13 @@ module Autorio::Params
                      fluentbit
                      MY_IP_ADDRESS
                      RIOOS_REPO
-                     RIOOS_REPO_USER
-                     RIOOS_REPO_PASSWORD
+                     RIOOS_REGISTRY_USER
+                     RIOOS_REGISTRY_PASSWORD
                      RIOOS_REGISTRY
                      RIOOS_HOME
                      RIOOS_CONFIG_HOME
-                     DNS_ENDPOINT
+                     POWERDNS_HOST
+                     POWERDNS_DOMAIN
                      API_SERVER
                      WATCH_SERVER
   ].freeze

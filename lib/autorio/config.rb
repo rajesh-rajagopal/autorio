@@ -46,6 +46,10 @@ module Autorio
         defined?(PROJECT_ROOT) ? File.expand_path(PROJECT_ROOT) : File.expand_path(File.join(LIBDIR, ".."))
       end
 
+      def rioos_registry_ca_crt
+        File.join(@project_root, "rioos_registry_ca.crt")
+      end
+
       def load_default_configs
         default_build_defaults = File.join(@project_root, "config.yaml")
 

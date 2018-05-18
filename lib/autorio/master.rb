@@ -5,6 +5,7 @@ require "autorio/tasks/containers/command_center"
 require "autorio/tasks/containers/controller"
 require "autorio/tasks/containers/scheduler"
 require "autorio/tasks/containers/prometheus"
+require "autorio/tasks/containers/powerdns"
 require "autorio/tasks/containers/blockchain"
 require "autorio/tasks/native_tasks"
 
@@ -24,8 +25,8 @@ module Autorio
     def gather
       hosts.each do |sshhost|
         on sshhost do |sshost|
-          download gather_locations[:from], gather_locations[:to] + "nodelet.config"
-          downlad gather_locations[:from], gather_locations[:to] + "storlet.config"
+          download! gather_locations[:from], gather_locations[:to] + "nodelet.config"
+          download! gather_locations[:from], gather_locations[:to] + "storlet.config"
         end
       end
     end

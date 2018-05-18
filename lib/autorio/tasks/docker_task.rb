@@ -4,10 +4,12 @@ module Autorio
   class DockerTask < Task
     DOCKER = "docker".freeze
     SUDO = "sudo".freeze
-    SUDO_DOCKER = SUDO + " " + DOCKER
-    SUDO_DOCKER_RUN = SUDO + " " + DOCKER + " run "
-    SUDO_DOCKER_RM = SUDO + " " + DOCKER + " rm "
-    SUDO_DOCKER_RMI = SUDO + " " + DOCKER + " rmi "
+    SUDO_DOCKER = " " + DOCKER
+    SUDO_DOCKER_RUN = " " + DOCKER + " run "
+    SUDO_DOCKER_RM = " " + DOCKER + " rm "
+    SUDO_DOCKER_STOP = " " + DOCKER + " stop "
+
+    SUDO_DOCKER_RMI = " " + DOCKER + " rmi "
 
     def before_deploy
     end
@@ -26,7 +28,7 @@ module Autorio
     end
 
     def clean
-      [SUDO_DOCKER_RM + name_colon_version, SUDO_DOCKER_RMI + name_colon_version]
+      [SUDO_DOCKER_STOP + name_underscore_version + ";" + SUDO_DOCKER_RM + name_underscore_version + ";" + SUDO_DOCKER_RMI + container]
     end
 
     def after_clean
