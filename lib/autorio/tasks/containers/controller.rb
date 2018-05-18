@@ -5,7 +5,7 @@ module Autorio
     NAME = "riooscontroller"
 
     def ip_address_ports
-      [Autorio::Config.MY_IP_ADDRESS + "10252:10252"]
+      [Autorio::Config.MY_IP_ADDRESS + ":10252:10252"]
     end
 
     def vols
